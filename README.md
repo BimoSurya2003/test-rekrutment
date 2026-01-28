@@ -10,16 +10,29 @@ menggunakan metode HTTP seperti GET (ambil data), POST (kirim data), PUT (ubah d
 
 ### 2. Apa itu CORS dan bagaimana cara menanganinya di backend?
 CORS (Cross-Origin Resource Sharing) adalah aturan di browser yang mencegah website mengambil data dari domain lain tanpa izin. Kalau backend sudah mengizinkan, browser akan membolehkan request.  
-Di backend, kita bisa mengatur CORS dengan menambahkan header `Access-Control-Allow-Origin`. Misalnya di Express:
+Di backend, kita bisa mengatur CORS dengan menambahkan header `Access-Control-Allow-Origin`. Misalnya di NestJs:
 
 ```javascript
-const express = require('express');
-const cors = require('cors');
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
-const app = express();
-app.use(cors()); // Mengizinkan semua domain
-// atau
-// app.use(cors({ origin: 'https://example.com' })); // Mengizinkan domain tertentu```
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  // Mengizinkan semua origin (bebas)
+  app.enableCors();
+
+  // Atau, mengizinkan hanya domain tertentu
+  // app.enableCors({
+  //   origin: 'https://example.com',
+  //   methods: 'GET,POST,PUT,DELETE',
+  //   allowedHeaders: 'Content-Type, Authorization',
+  // });
+
+  await app.listen(3000);
+}
+bootstrap();
+```
 
 ### 3. Apa perbedaan SQL dan NoSQL?
 SQL (Relational Database)
