@@ -10,7 +10,7 @@ menggunakan metode HTTP seperti GET (ambil data), POST (kirim data), PUT (ubah d
 
 ### 2. Apa itu CORS dan bagaimana cara menanganinya di backend?
 CORS (Cross-Origin Resource Sharing) adalah aturan di browser yang mencegah website mengambil data dari domain lain tanpa izin. Kalau backend sudah mengizinkan, browser akan membolehkan request.  
-Di backend, kita bisa mengatur CORS dengan menambahkan header `Access-Control-Allow-Origin`. misalnya di Express:
+Di backend, kita bisa mengatur CORS dengan menambahkan header `Access-Control-Allow-Origin`. Misalnya di Express:
 
 ```javascript
 const express = require('express');
@@ -20,7 +20,6 @@ const app = express();
 app.use(cors()); // Mengizinkan semua domain
 // atau
 // app.use(cors({ origin: 'https://example.com' })); // Mengizinkan domain tertentu
-
 
 ### 3. Apa perbedaan SQL dan NoSQL?
 SQL (Relational Database)
