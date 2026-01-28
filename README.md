@@ -19,7 +19,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors()); // Mengizinkan semua domain
 // atau
-// app.use(cors({ origin: 'https://example.com' })); // Mengizinkan domain tertentu
+// app.use(cors({ origin: 'https://example.com' })); // Mengizinkan domain tertentu```
 
 ### 3. Apa perbedaan SQL dan NoSQL?
 SQL (Relational Database)
